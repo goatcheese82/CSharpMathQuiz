@@ -126,16 +126,16 @@ namespace MathQuiz
             }
             else if (timeLeft > 0)
             {
-                if (timeLeft < 6)
-                {
-                    timeLabel.BackColor = Color.Red;
-                }
                 // If CheckTheAnswer() returns false, keep counting
                 // down. Decrease the time left by one second and 
                 // display the new time left by updating the 
                 // Time Left label.
                 timeLeft = timeLeft - 1;
                 timeLabel.Text = timeLeft + " seconds";
+                if (timeLeft < 6)
+                {
+                    timeLabel.BackColor = Color.Red;
+                }
             }
             else
             {
@@ -149,6 +149,7 @@ namespace MathQuiz
                 product.Value = multiplicand * multiplier;
                 quotient.Value = dividend / divisor;
                 startButton.Enabled = true;
+                timeLabel.BackColor = Color.White;
             }
         }
 
@@ -162,6 +163,12 @@ namespace MathQuiz
                 int lengthOfAnswer = answerBox.Value.ToString().Length;
                 answerBox.Select(0, lengthOfAnswer);
             }
+        }
+
+        private void setDate(object sender, EventArgs e)
+        {
+            string tdate = DateTime.Now.ToString("dd MMMM yyyy");
+            Text = $"Ben Smith - Math Quiz - {tdate}";
         }
     }
 }

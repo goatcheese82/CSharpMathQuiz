@@ -55,7 +55,7 @@
             this.startButton = new System.Windows.Forms.Button();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
-            this.todaysDate = new System.Windows.Forms.Label();
+            this.dateTicker = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.sum)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.difference)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.product)).BeginInit();
@@ -296,21 +296,17 @@
             this.timer1.Interval = 1000;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
-            // todaysDate
+            // dateTicker
             // 
-            this.todaysDate.AutoSize = true;
-            this.todaysDate.Location = new System.Drawing.Point(55, 25);
-            this.todaysDate.Name = "todaysDate";
-            this.todaysDate.Size = new System.Drawing.Size(30, 13);
-            this.todaysDate.TabIndex = 21;
-            this.todaysDate.Text = "Date";
+            this.dateTicker.Enabled = true;
+            this.dateTicker.Interval = 1;
+            this.dateTicker.Tick += new System.EventHandler(this.setDate);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(484, 361);
-            this.Controls.Add(this.todaysDate);
             this.Controls.Add(this.startButton);
             this.Controls.Add(this.quotient);
             this.Controls.Add(this.label12);
@@ -376,7 +372,7 @@
         private System.Windows.Forms.Button startButton;
         private System.Windows.Forms.Timer timer1;
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
-        private System.Windows.Forms.Label todaysDate;
+        private System.Windows.Forms.Timer dateTicker;
     }
 }
 
